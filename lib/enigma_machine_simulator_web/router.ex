@@ -17,7 +17,7 @@ defmodule EnigmaMachineSimulatorWeb.Router do
   scope "/", EnigmaMachineSimulatorWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    get "/", MachineController, :machine
   end
 
   # Other scopes may use custom stacks.
