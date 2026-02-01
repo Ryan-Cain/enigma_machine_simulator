@@ -42,4 +42,7 @@ import "phoenix_html";
 // >> liveSocket.disableLatencySim()
 // window.liveSocket = liveSocket
 
-import "./user_socket.js";
+import socket from "./user_socket.js";
+import MachineTest from "./machine_test.js";
+
+MachineTest.init(socket);

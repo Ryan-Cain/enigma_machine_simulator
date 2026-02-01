@@ -4,7 +4,7 @@ defmodule EnigmaMachineSimulatorWeb.MachineHTML do
 
   def machine(assigns) do
     ~H"""
-    <div>hello</div>
+    <input id="machine-keyboard" type="text"/>
     """
   end
 end
