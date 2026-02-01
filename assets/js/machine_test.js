@@ -12,6 +12,11 @@ let MachineTest = {
       .addEventListener("keydown", function (e) {
         channel.push("transmit", { key: e.key });
       });
+
+    channel.on("transmit", (e) => {
+      console.log(e.key);
+      document.getElementById("output-text").innerText = e.key;
+    });
   },
 };
 

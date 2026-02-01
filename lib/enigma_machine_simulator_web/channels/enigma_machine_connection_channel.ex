@@ -11,9 +11,9 @@ defmodule EnigmaMachineSimulatorWeb.EnigmaMachineConnectionChannel do
   @impl true
   def handle_in("transmit", payload, socket) do
     IO.inspect(payload, label: "payload")
-    key = String.to_atom(payload["key"])
-    EnigmaMachine.MixProject.key_press(socket, key)
-    broadcast(socket, "transmit", payload)
-    {:noreply, socket}
+    IO.inspect(socket, label: "socket")
+    updated_machine = EnigmaMachine.MixProject.key_press(socket.assigns.machine, payload["key"])
+    broadcast(socket, "transmit", %{key: updated_machine.lampboard_key})
+    {:noreply, assign(socket, :machine, updated_machine)}
   end
 end
